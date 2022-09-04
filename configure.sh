@@ -3,7 +3,7 @@
 # 创建配置文件目录
 mkdir -p /opt/alist/data/
 # 下载alist
-curl -L -H "Cache-Control: no-cache" -o alist.tar.gz https://github.com/alist-org/alist/releases/latest/download/alist-linux-amd64.tar.gz
+curl -L -H "Cache-Control: no-cache" -o alist.tar.gz 'https://down.xiaonuo.live?url=https://github.com/alist-org/alist/releases/latest/download/alist-linux-amd64.tar.gz'
 # 解压
 tar -zxvf alist.tar.gz
 # 删除源码目录
