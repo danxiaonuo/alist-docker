@@ -9,7 +9,7 @@ tar -zxvf alist.tar.gz
 # 删除源码目录
 rm -f alist.tar.gz
 # 将二进制文件移动到指定目录
-mv alist-linux-amd64 /opt/alist/alist
+mv alist-linux-amd64 /usr/bin/alist
 # 创建配置文件
 cat >/opt/alist/data/config.json <<EOF
 {
@@ -39,8 +39,6 @@ cat >/opt/alist/data/config.json <<EOF
 }
 EOF
 # 授权目录权限
-chmod -R 775 /opt/alist
-# 进入二进制目录
-cd /opt/alist
+chmod -R 775 /usr/bin/alist /opt/alist
 # 运行alist
-./alist -conf data/config.json -docker
+alist -conf /opt/alist/data/config.json -docker
