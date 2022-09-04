@@ -1,8 +1,8 @@
 #############################
 #     设置公共的变量         #
 #############################
-ARG BASE_IMAGE_TAG=20.04
-FROM ubuntu:${BASE_IMAGE_TAG}
+ARG BASE_IMAGE_TAG=latest
+FROM danxiaonuo/ubuntu:${BASE_IMAGE_TAG}
 
 # 作者描述信息
 MAINTAINER danxiaonuo
