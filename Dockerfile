@@ -47,9 +47,6 @@ ADD configure.sh /configure.sh
 # 授权脚本权限
 RUN chmod +x /configure.sh
 
-# 容器信号处理
-STOPSIGNAL SIGQUIT
-
 # 入口
 ENTRYPOINT ["/configure.sh"]
 
