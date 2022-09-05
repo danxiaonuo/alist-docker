@@ -16,7 +16,7 @@ ENV LANG=$LANG
 
 # ***** 下载二进制文件 *****
 RUN set -eux && \
-    export ALIST_DOWN="https://github.com/alist-org/alist/releases/latest/download/alist-linux-amd64.tar.gz"
+    export ALIST_DOWN="https://github.com/alist-org/alist/releases/latest/download/alist-linux-amd64.tar.gz" && \
     wget --no-check-certificate -O /tmp/alist.tar.gz ${ALIST_DOWN} && \
     cd /tmp && tar -zxvf alist.tar.gz && rm -f alist.tar.gz && \
     mv alist-linux-amd64 alist
