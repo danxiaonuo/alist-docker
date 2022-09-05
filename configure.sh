@@ -4,7 +4,7 @@
 mkdir -p /opt/alist/data
 
 # 创建配置文件
-cat >/etc/alist/config.json <<EOF
+cat >/opt/alist/data/config.json <<EOF
 {
     "address":"0.0.0.0",
     "port":"$PORT",
