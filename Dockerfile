@@ -49,6 +49,3 @@ RUN chmod +x /configure.sh
 
 # 入口
 ENTRYPOINT ["/configure.sh"]
-
-# 运行alist
-CMD ["alist","-conf","/etc/alist/config.json","-docker"]
