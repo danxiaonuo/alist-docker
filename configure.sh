@@ -31,5 +31,6 @@ cat >/etc/alist/config.json <<EOF
     "temp_dir":"data/temp"
 }
 EOF
+
 # 授权目录权限
 chmod -R 775 /usr/bin/alist /opt/alist
