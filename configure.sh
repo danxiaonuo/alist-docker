@@ -17,7 +17,7 @@ cat >/etc/alist/config.json <<EOF
         "port":"$ESQLPORT",
         "name":"$FSQLNAME",
         "table_prefix":"x_",
-        "db_file":"/opt/alist/data/data.db"
+        "db_file":"data.db"
     },
     "scheme":{
         "https":false,
@@ -28,7 +28,7 @@ cat >/etc/alist/config.json <<EOF
         "expiration":"$GEXPIRATION",
         "cleanup_interval":"$HCLEANUP_INTERVAL"
     },
-    "temp_dir":"/opt/alist/data/temp"
+    "temp_dir":"data/temp"
 }
 EOF
 
