@@ -1,8 +1,9 @@
-#############################
-#     设置公共的变量         #
-#############################
-ARG BASE_IMAGE_TAG=latest
-FROM danxiaonuo/ubuntu:${BASE_IMAGE_TAG}
+##########################################
+#         构建可执行二进制文件             #
+##########################################
+# 
+# 指定创建的基础镜像
+FROM danxiaonuo/alpine:latest AS builder
 
 # 作者描述信息
 MAINTAINER danxiaonuo
@@ -10,20 +11,35 @@ MAINTAINER danxiaonuo
 ARG TZ=Asia/Shanghai
 ENV TZ=$TZ
 # 语言设置
-ARG LANG=en_US.UTF-8
+ARG LANG=C.UTF-8
 ENV LANG=$LANG
 
-# 镜像变量
-ARG DOCKER_IMAGE=danxiaonuo/alist
-ENV DOCKER_IMAGE=$DOCKER_IMAGE
-ARG DOCKER_IMAGE_OS=ubuntu
-ENV DOCKER_IMAGE_OS=$DOCKER_IMAGE_OS
-ARG DOCKER_IMAGE_TAG=20.04
-ENV DOCKER_IMAGE_TAG=$DOCKER_IMAGE_TAG
+# ***** 下载二进制文件 *****
+RUN set -eux && \
+    export ALIST_DOWN="https://github.com/alist-org/alist/releases/latest/download/alist-linux-amd64.tar.gz"
+    wget --no-check-certificate -O /tmp/alist.tar.gz ${ALIST_DOWN} && \
+    cd /tmp && tar -zxvf alist.tar.gz && rm -f alist.tar.gz && \
+    mv alist-linux-amd64 alist
+# ##############################################################################
 
-# 环境设置
-ARG DEBIAN_FRONTEND=noninteractive
-ENV DEBIAN_FRONTEND=$DEBIAN_FRONTEND
+##########################################
+#         构建基础镜像                    #
+##########################################
+# 
+# 指定创建的基础镜像
+FROM danxiaonuo/alpine:latest
+
+# 作者描述信息
+MAINTAINER danxiaonuo
+# 时区设置
+ARG TZ=Asia/Shanghai
+ENV TZ=$TZ
+# 语言设置
+ARG LANG=C.UTF-8
+ENV LANG=$LANG
+
+# 拷贝二进制文件
+COPY --from=builder /tmp/alist /usr/bin/alist
 
 # 增加脚本
 ADD configure.sh /configure.sh
@@ -31,5 +47,11 @@ ADD configure.sh /configure.sh
 # 授权脚本权限
 RUN chmod +x /configure.sh
 
+# 容器信号处理
+STOPSIGNAL SIGQUIT
+
+# 入口
+ENTRYPOINT ["/configure.sh"]
+
 # 运行alist
-CMD ["/configure.sh"]
+CMD ["alist","-conf","/etc/alist/config.json","-docker"]
