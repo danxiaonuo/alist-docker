@@ -54,4 +54,4 @@ STOPSIGNAL SIGQUIT
 ENTRYPOINT ["/configure.sh"]
 
 # 运行alist
-CMD ["alist","-conf","/opt/alist/data/config.json","-docker"]
+CMD ["alist","-conf","/etc/alist/config.json","-docker"]
