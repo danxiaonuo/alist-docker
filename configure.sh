@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 创建配置文件目录
-mkdir -p /opt/alist/data/temp /etc/alist/config.json
+mkdir -p /opt/alist/data/temp /etc/alist/
 
 # 创建配置文件
 cat >/etc/alist/config.json <<EOF
