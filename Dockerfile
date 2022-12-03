@@ -11,7 +11,7 @@ MAINTAINER danxiaonuo
 ARG TZ=Asia/Shanghai
 ENV TZ=$TZ
 # 语言设置
-ARG LANG=en_US.UTF-8
+ARG LANG=zh_CN.UTF-8
 ENV LANG=$LANG
 
 # ***** 下载二进制文件 *****
@@ -35,7 +35,7 @@ MAINTAINER danxiaonuo
 ARG TZ=Asia/Shanghai
 ENV TZ=$TZ
 # 语言设置
-ARG LANG=en_US.UTF-8
+ARG LANG=zh_CN.UTF-8
 ENV LANG=$LANG
 
 # 拷贝二进制文件
