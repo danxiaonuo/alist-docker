@@ -18,7 +18,7 @@ ENV LANG=$LANG
 RUN set -eux && \
     export ALIST_DOWN="https://down.xiaonuo.live?url=https://github.com/alist-org/alist/releases/latest/download/alist-linux-amd64.tar.gz" && \
     wget --no-check-certificate -O /tmp/alist.tar.gz ${ALIST_DOWN} && \
-    cd /tmp && tar -zxvf alist.tar.gz && mv alist-linux-amd64 alist && \
+    cd /tmp && tar -zxvf alist.tar.gz && \
     rm -rf alist.tar.gz
 # ##############################################################################
 
