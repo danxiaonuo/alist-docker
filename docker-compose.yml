@@ -47,26 +47,8 @@ services:
     #  - ""
     # 环境变量
     environment:
-      # 监听端口
-      - PORT=80
-      # 使用的静态资源位置
-      - IASSETS=https://cdn.jsdelivr.net/npm/alist-web@2.6.4/dist/
-      # 数据库类型
-      - ADATABASE=mysql
-      # 数据库用户名
-      - BSQLUSER=danxiaonuo
-      # 数据库密码
-      - CSQLPASSWORD=admin123
-      # 数据库地址
-      - DSQLHOST=db4free.net
-      # 数据库端口号
-      - ESQLPORT=3306
-      # 数据库库名
-      - FSQLNAME=danxiaonuo
-      # 缓存失效时间
-      - GEXPIRATION=60
-      # 清理失效缓存间隔
-      - HCLEANUP_INTERVAL=120
+      # alist数据目录
+      - ALIST_PATH=/opt/alist
     # 配置容器连接的网络
     networks:
       app_net:
