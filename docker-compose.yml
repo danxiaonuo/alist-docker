@@ -56,7 +56,7 @@ services:
         ipv6_address: 2066::2
     # 暴露端口信息
     ports:
-    - "80:80"
+    - "80:5244"
     # 指定容器的 ulimits 限制值
     ulimits:
       nproc: 65535
