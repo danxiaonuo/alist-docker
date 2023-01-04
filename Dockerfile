@@ -37,6 +37,8 @@ ENV TZ=$TZ
 # 语言设置
 ARG LANG=zh_CN.UTF-8
 ENV LANG=$LANG
+# root权限
+ENV PUID=0 PGID=0 UMASK=022
 
 # 拷贝二进制文件
 COPY --from=builder /tmp/alist /usr/bin/alist
