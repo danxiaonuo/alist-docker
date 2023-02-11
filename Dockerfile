@@ -13,6 +13,9 @@ ENV TZ=$TZ
 # 语言设置
 ARG LANG=zh_CN.UTF-8
 ENV LANG=$LANG
+# 数据目录
+ARG ALIST_PATH=/opt/alist
+ENV ALIST_PATH=$ALIST_PATH
 
 # ***** 下载二进制文件 *****
 RUN set -eux && \
